@@ -1,10 +1,6 @@
 <div align="center">
-  <img src="assets/degerisbot-banner.png"
-       alt="DegerisBot Banner"
-       width="100%">
+  <img src="degerisbot-banner.png" width="100%">
 </div>
-
-<br>
 # 🤖 DegerisBot | دگریس بات
 
 **یک ربات تلگرامی قدرتمند برای فروش و مدیریت سرویس‌های VPN با قابلیت ساخت خودکار کانفیگ، پرداخت آنلاین و مدیریت هوشمند کاربران.**
