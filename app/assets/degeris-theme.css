@@ -1,0 +1,207 @@
+/* Degeris mini app theme: overrides the design tokens of the built bundle.
+   Loaded after the bundle CSS, so it only changes colors, surfaces and motion. */
+
+:root {
+  --radius: 1rem;
+  --background: #f5f6fb;
+  --foreground: #101426;
+  --card: #ffffff;
+  --card-foreground: #101426;
+  --popover: #ffffff;
+  --popover-foreground: #101426;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2ff;
+  --secondary-foreground: #3730a3;
+  --muted: #f0f2f8;
+  --muted-foreground: #667085;
+  --accent: #eef2ff;
+  --accent-foreground: #3730a3;
+  --destructive: #e11d48;
+  --border: #e6e8f0;
+  --input: #e6e8f0;
+  --ring: #818cf8;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #101426;
+  --sidebar-primary: #4f46e5;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2ff;
+  --sidebar-accent-foreground: #3730a3;
+  --sidebar-border: #e6e8f0;
+  --sidebar-ring: #818cf8;
+}
+
+.dark {
+  --background: #0b0f1c;
+  --foreground: #f5f7ff;
+  --card: #131a2c;
+  --card-foreground: #f5f7ff;
+  --popover: #131a2c;
+  --popover-foreground: #f5f7ff;
+  --primary: #818cf8;
+  --primary-foreground: #0b0f1c;
+  --secondary: #1d2640;
+  --secondary-foreground: #e0e7ff;
+  --muted: #1d2640;
+  --muted-foreground: #97a3bd;
+  --accent: #1d2640;
+  --accent-foreground: #e0e7ff;
+  --destructive: #f43f5e;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #6366f1;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(900px 480px at 8% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+    radial-gradient(700px 420px at 100% 0%, rgba(14, 165, 233, 0.12), transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Surfaces: softer cards with a faint brand glow */
+.bg-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(16, 20, 38, 0.04), 0 10px 30px -18px rgba(79, 70, 229, 0.25);
+}
+
+.dark .bg-card {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 16px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Primary actions: gradient, lift on hover */
+.bg-primary {
+  background-image: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  box-shadow: 0 8px 20px -10px rgba(79, 70, 229, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.dark .bg-primary {
+  background-image: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+}
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+button.bg-primary:not(:disabled):hover {
+  filter: brightness(1.06);
+}
+
+.bg-secondary,
+.bg-muted,
+.bg-accent {
+  transition: background-color 0.2s ease;
+}
+
+/* Form fields */
+input,
+textarea,
+select {
+  border-color: var(--input);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.35);
+  outline: none;
+}
+
+/* Page entrance */
+#root > * {
+  animation: dgFadeUp 0.35s ease both;
+}
+
+/* Splash screen (shown until the app mounts) */
+#dg-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #0ea5e9 100%);
+  color: #ffffff;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#dg-splash.dg-hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dg-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 800 36px/1 Vazir, system-ui, sans-serif;
+  box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.4);
+  animation: dgPop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.dg-name {
+  font: 700 22px/1.2 Vazir, system-ui, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.dg-sub {
+  font: 400 13px/1.4 Vazir, system-ui, sans-serif;
+  opacity: 0.8;
+}
+
+.dg-bar {
+  width: 128px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.dg-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 40%;
+  border-radius: 4px;
+  background: #ffffff;
+  animation: dgLoad 1.1s ease-in-out infinite;
+}
+
+@keyframes dgPop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes dgFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes dgLoad {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(260%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root > *,
+  .dg-logo,
+  .dg-bar::after {
+    animation: none;
+  }
+}
