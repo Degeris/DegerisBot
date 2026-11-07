@@ -1,6 +1,3 @@
-<div align="center">
-  <img src="degerisbot-banner.png" width="100%">
-</div>
 # 🤖 DegerisBot | دگریس بات
 
 **یک ربات تلگرامی قدرتمند برای فروش و مدیریت سرویس‌های VPN با قابلیت ساخت خودکار کانفیگ، پرداخت آنلاین و مدیریت هوشمند کاربران.**
@@ -13,6 +10,9 @@ DegerisBot یک سیستم جامع و حرفه‌ای برای راه‌اند�
 
 ---
 
+<div align="center">
+  <img src="degerisbot-banner.png" width="100%">
+</div>
 ## 📚 فهرست مطالب
 
 - ✨ معرفی DegerisBot
